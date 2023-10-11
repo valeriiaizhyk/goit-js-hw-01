@@ -1,5 +1,12 @@
 function getElementWidth(content, padding, border) {
-  const totalWidth = content + 2 * padding + 2 * border;
+  const contentWidth = parseFloat(content);
+  const paddingWidth = parseFloat(padding);
+  const borderWidth = parseFloat(border);
+  if (isNaN(contentWidth) || isNaN(paddingWidth) || isNaN(borderWidth)) {
+    console.error;
+    return;
+  }
+  const totalWidth = contentWidth + 2 * paddingWidth + 2 * borderWidth;
   return totalWidth;
 }
 console.log(getElementWidth("50px", "8px", "4px")); // 74
